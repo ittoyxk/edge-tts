@@ -6,7 +6,7 @@ RUN echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-updates main
 RUN echo 'deb https://mirrors.tuna.tsinghua.edu.cn/debian/ bookworm-backports main contrib non-free non-free-firmware' >> /etc/apt/sources.list
 RUN echo 'deb https://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware' >> /etc/apt/sources.list
 RUN apt-get update
-RUN apt-get install python3-pip
+RUN apt-get install python3-pip -y
 RUN pip install edge-tts
 
 ENTRYPOINT ["tail","-f","/dev/null"]
