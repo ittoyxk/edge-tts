@@ -2,7 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
     tags: "*"
 env:
   # 设置 docker 镜像名
@@ -35,7 +35,7 @@ jobs:
           # 从 tag 名字中替换 v 字符
           [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION)
           # Use Docker `latest` tag convention
-          [ "$VERSION" == "main" ] && VERSION=latest
+          [ "$VERSION" == "master" ] && VERSION=latest
           echo VERSION=$VERSION
           docker build . --file Dockerfile --tag $IMAGE_NAME:$VERSION
           docker push $IMAGE_NAME:$VERSION
